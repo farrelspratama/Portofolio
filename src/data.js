@@ -4,9 +4,9 @@ export const profile = {
   name: "Farrel Setia Pratama",
   roles: ["Data Analyst", "Machine Learning Enthusiast", "Web Developer"],
   lead:
-    "Mahasiswa Pendidikan Ilmu Komputer yang mengubah data menjadi solusi yang akurat dan berdampak.",
+    "Lulusan Pendidikan Ilmu Komputer yang mengubah data menjadi solusi yang akurat dan berdampak.",
   about:
-    "Saya adalah mahasiswa aktif pada Jurusan Pendidikan Ilmu Komputer dengan minat yang kuat di bidang data analisis dan machine learning. Saya belajar teknologi Python dan menggunakan library seperti Pandas, NumPy, Matplotlib, dan Seaborn untuk pengolahan data, visualisasi, dan membangun model prediktif. Selain kemampuan teknis, saya juga memiliki keterampilan komunikasi, kerja sama tim, serta pemecahan masalah yang baik. Saya memiliki semangat belajar yang tinggi dan berkomitmen untuk terus berkembang di bidang teknologi guna menjadi seorang data analyst yang mampu memberikan solusi berbasis data secara akurat dan berdampak.",
+    "Saya adalah lulusan Pendidikan Ilmu Komputer dengan minat yang kuat di bidang data analisis dan machine learning. Saya belajar teknologi Python dan menggunakan library seperti Pandas, NumPy, Matplotlib, dan Seaborn untuk pengolahan data, visualisasi, dan membangun model prediktif. Selain kemampuan teknis, saya juga memiliki keterampilan komunikasi, kerja sama tim, serta pemecahan masalah yang baik. Saya memiliki semangat belajar yang tinggi dan berkomitmen untuk terus berkembang di bidang teknologi guna menjadi seorang data analyst yang mampu memberikan solusi berbasis data secara akurat dan berdampak.",
   education: "Pendidikan Ilmu Komputer · Universitas Pendidikan Indonesia",
   location: "Bandung, Jawa Barat, Indonesia",
   email: "farrelsetiapratama43@gmail.com",
@@ -53,9 +53,8 @@ export const softSkills = [
 export const interests = [
   "Machine Learning",
   "Data Analyst",
-  "Mobile Developer",
-  "Cyber Security",
   "Web Developer",
+  "Mobile Developer",
 ];
 
 // `links`: isi dengan { label, href } bila sudah punya URL repo / demo, contoh:
