@@ -5,27 +5,67 @@ import SectionHead from "./SectionHead.jsx";
 import Icon from "./Icon.jsx";
 
 const img = (name) => `/img/projects/${name}.webp`;
+const vid = (name) => `/video/${name}.mkv`;
+const isVideo = (s) => Boolean(s.video || s.youtube);
+const keyOf = (s) => s.src || s.video || s.youtube;
+// gambar kecil untuk thumbnail: poster untuk video, atau src untuk gambar
+const thumbOf = (s) => (s.poster ? img(s.poster) : s.src ? img(s.src) : null);
 
-function BrowserFrame({ project, current }) {
+function Media({ s, active }) {
+  if (s.youtube) {
+    return active ? (
+      <iframe
+        className="on"
+        src={`https://www.youtube-nocookie.com/embed/${s.youtube}?rel=0`}
+        title={s.alt}
+        loading="lazy"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allowFullScreen
+      />
+    ) : null;
+  }
+  if (s.video) {
+    return active ? (
+      <video className="on" controls playsInline preload="metadata" poster={s.poster ? img(s.poster) : undefined} aria-label={s.alt}>
+        <source src={vid(s.video)} type="video/mp4" />
+      </video>
+    ) : null;
+  }
+  return (
+    <img src={img(s.src)} alt={active ? s.alt : ""} aria-hidden={!active} className={active ? "on" : ""} loading="lazy" />
+  );
+}
+
+function BrowserFrame({ project, current, portrait }) {
   const shot = project.images[current];
   return (
-    <div className="frame">
+    <div className={"frame" + (portrait ? " portrait" : "")}>
       <div className="frame-bar" aria-hidden="true">
         <i /><i /><i />
         <span className="mono">{project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} / {shot.label.toLowerCase()}</span>
       </div>
       <div className="frame-screen" style={{ background: shot.bg }}>
         {project.images.map((s, i) => (
-          <img
-            key={s.src}
-            src={img(s.src)}
-            alt={i === current ? s.alt : ""}
-            aria-hidden={i !== current}
-            className={i === current ? "on" : ""}
-            loading="lazy"
-          />
+          <Media key={keyOf(s)} s={s} active={i === current} />
         ))}
       </div>
+    </div>
+  );
+}
+
+function Thumbs({ project, current, onPick }) {
+  return (
+    <div className="thumbs" role="group" aria-label={"Media " + project.title}>
+      {project.images.map((s, i) => {
+        const t = thumbOf(s);
+        return (
+          <button key={keyOf(s)} type="button" className={i === current ? "on" : ""} aria-pressed={i === current} onClick={() => onPick(i)}>
+            {t ? <img src={t} alt="" loading="lazy" /> : <span className="thumb-blank" aria-hidden="true" />}
+            {isVideo(s) && <span className="play" aria-hidden="true">▶</span>}
+            <span className="mono">{s.label}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -76,25 +116,12 @@ function Project({ project, index }) {
       </div>
 
       <div className="project-media">
-        {project.kind === "phone" ? (
+        {project.kind === "phone" && !project.images.some(isVideo) ? (
           <PhoneFrame project={project} current={current} onPick={setCurrent} />
         ) : (
           <>
-            <BrowserFrame project={project} current={current} />
-            <div className="thumbs" role="group" aria-label={"Screenshot " + project.title}>
-              {project.images.map((s, i) => (
-                <button
-                  key={s.src}
-                  type="button"
-                  className={i === current ? "on" : ""}
-                  aria-pressed={i === current}
-                  onClick={() => setCurrent(i)}
-                >
-                  <img src={img(s.src)} alt="" loading="lazy" />
-                  <span className="mono">{s.label}</span>
-                </button>
-              ))}
-            </div>
+            <BrowserFrame project={project} current={current} portrait={project.kind === "phone"} />
+            <Thumbs project={project} current={current} onPick={setCurrent} />
           </>
         )}
       </div>

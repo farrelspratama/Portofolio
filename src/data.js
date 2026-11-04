@@ -116,6 +116,20 @@ export const projects = [
     ],
     links: [],
   },
+  {
+    id: "codeventure",
+    category: "Game",
+    title: "Codeventure",
+    kind: "browser",
+    description:
+      "Game adventure 2D interaktif berbasis Problem-based Learning (PBL) yang dirancang menggunakan metode R&D (ADDIE) untuk melatih kemampuan berpikir logis dan pemahaman materi Struktur Data Stack siswa SMK. Dikembangkan dengan pendekatan pedagogi digital yang valid (skor ahli 86,54%) dan responsif (skor SUS 74,94).",
+    stack: ["Godot Engine", "GDScript", "Struktur Data Stack"],
+    images: [
+      { video: "codeventure-1", poster: "codeventure-1", label: "Dialog", alt: "Demo dashboard" },
+      { video: "codeventure-2", poster: "codeventure-2", label: "Minigame", alt: "Demo dashboard" },
+    ],
+    links: [],
+  },
 ];
 
 export const experience = [
