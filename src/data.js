@@ -94,8 +94,8 @@ export const projects = [
     title: "Life Trans",
     kind: "browser",
     description:
-      "Life-Trans: Nikmatnya Kehidupan Bertransportasi, Demi Mengurangi Kemacetan adalah sistem informasi berbasis web yang bertujuan untuk membantu masyarakat dalam merencanakan dan melakukan perjalanan dengan lebih efisien dan efektif, sehingga dapat membantu mengurangi kemacetan. Selain itu, aplikasi ini dapat membantu pengguna dalam menentukan rute terbaik, memperkirakan waktu perjalanan, dan mengetahui jadwal transportasi publik. Dibuat menggunakan PHP sebagai bahasa pemrograman backend untuk mengelola data dan logika sistem, serta JavaScript untuk mengintegrasikan API peta yang menampilkan peta interaktif, rute perjalanan, dan informasi transportasi publik secara real-time.",
-    stack: ["PHP", "JavaScript", "Maps API", "MySQL"],
+      "Sistem informasi berbasis web yang dirancang untuk membantu masyarakat merencanakan perjalanan secara efisien melalui integrasi peta interaktif (HERE Maps API) dan backend PHP. Siklus pengembangannya dilengkapi dengan penyusunan dokumentasi teknis komprehensif, meliputi perancangan alur sistem dan basis data (ERD), dokumen spesifikasi kebutuhan perangkat lunak (SRS), panduan integrasi API peta, serta penyusunan petunjuk penggunaan (User Manual) terstruktur guna memastikan keberlanjutan dan kemudahan pemeliharaan sistem.",
+    stack: ["PHP", "JavaScript", "HERE Maps API", "MySQL"],
     images: [
       { src: "lifetrans-2", label: "Landing", alt: "Halaman awal Life Trans", bg: "#00b4d8" },
       { src: "lifetrans-1", label: "Rute", alt: "Perencana rute Life Trans dengan peta interaktif", bg: "#ffffff" },
@@ -108,7 +108,7 @@ export const projects = [
     title: "Drag’n Learn",
     kind: "phone",
     description:
-      "Drag’nLearn adalah aplikasi edukatif interaktif yang dirancang untuk membantu siswa mengembangkan keterampilan literasi digital melalui permainan pengelompokan. Dalam aplikasi ini, pengguna akan mengelompokkan kata dan kalimat ke dalam kategori seperti hoax, opini, dan fakta, serta menilai kekuatan kata sandi dan membedakan informasi pribadi dan publik. Aplikasi ini dikembangkan menggunakan React Native, sehingga dapat berjalan lintas platform dengan tampilan modern dan responsif. Dengan pendekatan ini, Drag’nLearn berusaha meningkatkan pemahaman siswa terhadap informasi di dunia maya sambil memberikan pengalaman belajar yang menyenangkan dan menantang.",
+      "Aplikasi mobile edukatif berbasis React Native yang melatih keterampilan literasi digital siswa melalui modul interaktif drag & drop. Pengembangannya didukung oleh penyusunan dokumen teknis yang terstruktur, mencakup pemetaan alur pengguna (User Flow), pemodelan Use Case & Skenario multi-aktor (Guru/Admin dan Siswa), perancangan basis data relasional (manajemen akun, kelas, dan materi game).",
     stack: ["React Native", "JavaScript", "Literasi Digital"],
     images: [
       { src: "dragnlearn-1", label: "Sign in", alt: "Layar awal aplikasi Drag’n Learn", bg: "#ffffff" },
@@ -118,22 +118,39 @@ export const projects = [
   },
 ];
 
-export const experience = {
-  title: "Program Penguatan Profesional Kependidikan (P3K)",
-  place: "SMK Negeri 2 Bandung",
-  description:
-    "Dalam program Penguatan Pengalaman Profesional Kependidikan (P3K) yang saya ikuti di SMK Negeri 2 Bandung, saya melaksanakan berbagai kegiatan inti. Saya juga menghadapi dan mengatasi tantangan dalam pelaksanaan tugas harian dan teknis pembelajaran melalui evaluasi dan perbaikan berkelanjutan. Program ini memperkuat kompetensi saya sebagai calon pendidik dan memberikan pengalaman nyata dalam mengelola pembelajaran dan dinamika lingkungan sekolah.",
-  activities: [
-    "Praktik mengajar",
-    "Pengembangan media dan bahan ajar",
-    "Penilaian hasil belajar",
-    "Praktik manajemen sekolah",
-  ],
-  photos: [
-    { src: "p3k-2", alt: "Farrel mengajar di laboratorium komputer SMK Negeri 2 Bandung" },
-    { src: "p3k-1", alt: "Foto bersama siswa SMK Negeri 2 Bandung" },
-  ],
-};
+export const experience = [
+  {
+    title: "Program Penguatan Profesional Kependidikan (P3K)",
+    place: "SMK Negeri 2 Bandung",
+    description: "Dalam program Penguatan Pengalaman Profesional Kependidikan (P3K) di SMK Negeri 2 Bandung, saya melaksanakan berbagai kegiatan inti. Saya juga menghadapi dan mengatasi tantangan dalam pelaksanaan tugas harian dan teknis pembelajaran melalui evaluasi dan perbaikan berkelanjutan. Program ini memperkuat kompetensi saya sebagai calon pendidik dan memberikan pengalaman nyata dalam mengelola pembelajaran dan dinamika lingkungan sekolah.",
+    activities: [
+      "Praktik mengajar",
+      "Pengembangan media dan bahan ajar",
+      "Penilaian hasil belajar",
+      "Praktik manajemen sekolah",
+    ],
+    photos: [
+      { src: "p3k-2", alt: "Farrel mengajar di laboratorium komputer SMK Negeri 2 Bandung" },
+      { src: "p3k-1", alt: "Foto bersama siswa SMK Negeri 2 Bandung" },
+    ],
+  },
+  
+  {
+    title: "Penelitian Tugas Akhir",
+    place: "SMK Negeri 13 Bandung",
+    description: "Merancang, mengembangkan, dan menguji aplikasi game adventure 2D berbasis Problem-based Learning (PBL) untuk pembelajaran materi Struktur Data Stack. Saya menerapkan metode R&amp;D berbasis kerangka kerja ADDIE serta melakukan evaluasi terstruktur melalui pengujian kebergunaan sistem (SUS) dan analisis data hasil belajar siswa secara terukur. Pengalaman riset ini memperkuat kompetensi saya dalam rekayasa perangkat lunak edukatif dan pengolahan data analitis.",
+    activities: [
+      "Pengumpulan data",
+      "Implementasi pembelajaran di kelas",
+      "Analisis hasil penelitian",
+    ],
+    photos: [
+      { src: "penelitian-1", alt: "Farrel mengajar di laboratorium komputer SMK Negeri 13 Bandung" },
+      { src: "penelitian-2", alt: "Kegiatan diskusi siswa SMK Negeri 13 Bandung" },
+      { src: "penelitian-3", alt: "Foto bersama siswa SMK Negeri 13 Bandung"}
+    ],
+  },
+];
 
 // Kredensial EmailJS (kunci publik, memang dipakai di sisi browser). Bisa ditimpa lewat file .env.
 export const emailjs = {

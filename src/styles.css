@@ -330,6 +330,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ---------- Experience ---------- */
 .xp { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.xp-list { display: grid; gap: clamp(56px, 8vw, 110px); }
+.xp-solo { grid-template-columns: minmax(0, 760px); }
 .xp-place { font-size: 0.82rem; color: var(--accent-ink); text-transform: uppercase; letter-spacing: 0.06em; }
 .xp-text h3 { margin-top: 10px; font-size: clamp(1.6rem, 3.2vw, 2.4rem); line-height: 1.15; letter-spacing: -0.025em; font-weight: 700; }
 .xp-acts { margin-block: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -337,6 +339,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .xp-text > p:last-child { color: var(--muted); line-height: 1.8; }
 .xp-photos { position: relative; aspect-ratio: 1 / 0.95; }
 .xp-photo { position: absolute; border-radius: 18px; object-fit: cover; box-shadow: var(--shadow); border: 5px solid var(--surface); }
+.xp-grid { aspect-ratio: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.xp-grid .xp-photo { position: static; width: 100%; aspect-ratio: 4 / 3; }
+.xp-grid .xp-photo:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
 .xp-photo.p1 { top: 0; right: 0; width: 72%; aspect-ratio: 16 / 10; }
 .xp-photo.p2 { bottom: 0; left: 0; width: 72%; aspect-ratio: 4 / 3; }
 @media (max-width: 860px) { .xp { grid-template-columns: 1fr; } .xp-photos { width: 100%; } }
