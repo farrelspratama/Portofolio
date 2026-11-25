@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projects } from "../data.js";
+import { projects, projectGroups } from "../data.js";
 import { useReveal } from "./hooks.js";
 import SectionHead from "./SectionHead.jsx";
 import Icon from "./Icon.jsx";
@@ -8,7 +8,6 @@ const img = (name) => `/img/projects/${name}.webp`;
 const vid = (name) => `/video/${name}.mkv`;
 const isVideo = (s) => Boolean(s.video || s.youtube);
 const keyOf = (s) => s.src || s.video || s.youtube;
-// gambar kecil untuk thumbnail: poster untuk video, atau src untuk gambar
 const thumbOf = (s) => (s.poster ? img(s.poster) : s.src ? img(s.src) : null);
 
 function Media({ s, active }) {
@@ -129,7 +128,35 @@ function Project({ project, index }) {
   );
 }
 
+function GroupTabs({ groups, active, onPick }) {
+  return (
+    <div className="ptabs" role="tablist" aria-label="Kategori proyek">
+      {groups.map((g) => (
+        <button
+          key={g.id}
+          type="button"
+          role="tab"
+          id={"ptab-" + g.id}
+          aria-selected={active === g.id}
+          aria-controls="proyek-list"
+          className={active === g.id ? "on" : ""}
+          onClick={() => onPick(g.id)}
+        >
+          {g.label} <span className="mono">{g.count}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export default function Projects() {
+  const [group, setGroup] = useState("all");
+  // hanya tampilkan tab untuk kategori yang punya proyek
+  const groups = projectGroups
+    .map((g) => ({ ...g, count: projects.filter((p) => p.group === g.id).length }))
+    .filter((g) => g.count > 0);
+  const tabs = [{ id: "all", label: "Semua", count: projects.length }, ...groups];
+  const visible = group === "all" ? projects : projects.filter((p) => p.group === group);
   return (
     <section id="proyek" className="section">
       <div className="container">
@@ -137,10 +164,11 @@ export default function Projects() {
           index="03"
           label="Proyek"
           title="Project Experience"
-          sub="Dari analisis data sampai aplikasi web dan mobile."
+          sub="Dari analisis data sampai aplikasi web dan game edukasi."
         />
-        <div className="projects">
-          {projects.map((p, i) => (
+        {groups.length > 1 && <GroupTabs groups={tabs} active={group} onPick={setGroup} />}
+        <div className="projects" id="proyek-list" role="tabpanel" aria-labelledby={"ptab-" + group}>
+          {visible.map((p, i) => (
             <Project key={p.id} project={p} index={i} />
           ))}
         </div>

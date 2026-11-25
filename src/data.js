@@ -57,11 +57,18 @@ export const interests = [
   "Mobile Developer",
 ];
 
+export const projectGroups = [
+  { id: "data", label: "Data" },
+  { id: "web", label: "Web App" },
+  { id: "game", label: "Game" },
+];
+
 // `links`: isi dengan { label, href } bila sudah punya URL repo / demo, contoh:
 // links: [{ label: "Lihat Dashboard", href: "https://..." }, { label: "Source Code", href: "https://github.com/..." }]
 export const projects = [
   {
     id: "bike-analysis",
+    group: "data",
     category: "Data Analysis",
     title: "Bike Sharing Analysis",
     kind: "browser",
@@ -76,6 +83,7 @@ export const projects = [
   },
   {
     id: "bike-viz",
+    group: "data",
     category: "Dashboard",
     title: "Bike Sharing Visualization",
     kind: "browser",
@@ -90,6 +98,7 @@ export const projects = [
   },
   {
     id: "life-trans",
+    group: "web",
     category: "Web App",
     title: "Life Trans",
     kind: "browser",
@@ -104,6 +113,7 @@ export const projects = [
   },
   {
     id: "dragnlearn",
+    group: "web",
     category: "Mobile App",
     title: "Drag’n Learn",
     kind: "phone",
@@ -118,6 +128,7 @@ export const projects = [
   },
   {
     id: "codeventure",
+    group: "game",
     category: "Game",
     title: "Codeventure",
     kind: "browser",
