@@ -1,4 +1,5 @@
 import { useTheme } from "./components/hooks.js";
+import { useSmoothAnchors } from "./components/scroll.js";
 import { useLang } from "./i18n.jsx";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
@@ -11,6 +12,7 @@ import Contact from "./components/Contact.jsx";
 export default function App() {
   const [theme, toggleTheme] = useTheme();
   const { t } = useLang();
+  useSmoothAnchors();
   return (
     <>
       <a className="skip" href="#tentang">{t.skip}</a>

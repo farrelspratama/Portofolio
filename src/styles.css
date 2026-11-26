@@ -225,7 +225,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @keyframes marquee { to { transform: translateX(calc(-50% - 22px)); } }
 
 /* ---------- Sections ---------- */
-.section { padding-block: clamp(72px, 10vw, 132px); }
+.section {
+  --section-pad: clamp(72px, 10vw, 132px);
+  padding-block: var(--section-pad);
+  scroll-margin-top: calc(20px - var(--section-pad));
+}
 .section-alt { background: var(--surface-2); }
 .section-head { margin-bottom: clamp(36px, 6vw, 64px); max-width: 760px; }
 .eyebrow { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-ink); display: flex; gap: 10px; align-items: center; }
