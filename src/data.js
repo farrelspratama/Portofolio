@@ -109,7 +109,9 @@ export const projects = [
       { src: "lifetrans-2", label: "Landing", alt: "Halaman awal Life Trans", bg: "#00b4d8" },
       { src: "lifetrans-1", label: "Rute", alt: "Perencana rute Life Trans dengan peta interaktif", bg: "#ffffff" },
     ],
-    links: [],
+    links: [
+      { label: "GitHub", href: "https://github.com/MrasyidN/Life-Trans-project" }
+    ],
   },
   {
     id: "dragnlearn",
@@ -124,7 +126,9 @@ export const projects = [
       { src: "dragnlearn-1", label: "Sign in", alt: "Layar awal aplikasi Drag’n Learn", bg: "#ffffff" },
       { src: "dragnlearn-2", label: "Course", alt: "Halaman course aplikasi Drag’n Learn", bg: "#ffffff" },
     ],
-    links: [],
+    links: [
+      { label: "GitHub", href: "https://github.com/RhismaSyahrulPutra/uas-mobile-learning-drag-nlearn" }
+    ],
   },
   {
     id: "codeventure",
@@ -139,7 +143,10 @@ export const projects = [
       { video: "codeventure-1", poster: "codeventure-1", label: "Dialog", alt: "Demo dashboard" },
       { video: "codeventure-2", poster: "codeventure-2", label: "Minigame", alt: "Demo dashboard" },
     ],
-    links: [],
+    links: [
+      { label: "GitHub", href: "https://github.com/farrelspratama/Codeventure" },
+      { label: "itch.io", href: "https://blysium.itch.io/codeventure"}
+    ],
   },
 ];
 
@@ -163,7 +170,7 @@ export const experience = [
   {
     title: "Penelitian Tugas Akhir",
     place: "SMK Negeri 13 Bandung",
-    description: "Merancang, mengembangkan, dan menguji aplikasi game adventure 2D berbasis Problem-based Learning (PBL) untuk pembelajaran materi Struktur Data Stack. Saya menerapkan metode R&amp;D berbasis kerangka kerja ADDIE serta melakukan evaluasi terstruktur melalui pengujian kebergunaan sistem (SUS) dan analisis data hasil belajar siswa secara terukur. Pengalaman riset ini memperkuat kompetensi saya dalam rekayasa perangkat lunak edukatif dan pengolahan data analitis.",
+    description: "Merancang, mengembangkan, dan menguji aplikasi game adventure 2D berbasis Problem-based Learning (PBL) untuk pembelajaran materi Struktur Data Stack. Saya menerapkan metode R&D berbasis kerangka kerja ADDIE serta melakukan evaluasi terstruktur melalui pengujian kebergunaan sistem (SUS) dan analisis data hasil belajar siswa secara terukur. Pengalaman riset ini memperkuat kompetensi saya dalam rekayasa perangkat lunak edukatif dan pengolahan data analitis.",
     activities: [
       "Pengumpulan data",
       "Implementasi pembelajaran di kelas",

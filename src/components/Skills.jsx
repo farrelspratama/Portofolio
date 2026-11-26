@@ -1,6 +1,7 @@
 import { technology, hardSkills, softSkills, interests } from "../data.js";
 import { useReveal } from "./hooks.js";
 import SectionHead from "./SectionHead.jsx";
+import { useLang } from "../i18n.jsx";
 
 function List({ title, items, tone }) {
   const ref = useReveal();
@@ -18,32 +19,33 @@ function List({ title, items, tone }) {
 
 export default function Skills() {
   const ref = useReveal();
+  const { t } = useLang();
   return (
     <section id="skill" className="section section-alt">
       <div className="container">
         <SectionHead
           index="02"
-          label="Skill"
-          title="Alat & kemampuan"
-          sub="Teknologi yang saya pakai sehari-hari, dan hal-hal yang ingin terus saya dalami."
+          label={t.nav.skills}
+          title={t.skills.title}
+          sub={t.skills.sub}
         />
         <div className="bento">
           <div ref={ref} className="card reveal bento-tech">
-            <h3>Technology</h3>
+            <h3>{t.skills.technology}</h3>
             <ul className="logo-grid">
-              {technology.map((t) => (
-                <li key={t.name}>
+              {technology.map((tech) => (
+                <li key={tech.name}>
                   <span className="logo-tile">
-                    <img src={`/img/logos/${t.logo}.webp`} alt="" loading="lazy" />
+                    <img src={`/img/logos/${tech.logo}.webp`} alt="" loading="lazy" />
                   </span>
-                  <span className="logo-name">{t.name}</span>
+                  <span className="logo-name">{tech.name}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <List title="Hard Skills" items={hardSkills} tone="hard" />
-          <List title="Soft Skills" items={softSkills} tone="soft" />
-          <List title="Interest" items={interests} tone="interest" />
+          <List title={t.skills.hard} items={hardSkills} tone="hard" />
+          <List title={t.skills.soft} items={softSkills} tone="soft" />
+          <List title={t.skills.interest} items={interests} tone="interest" />
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { profile, emailjs as cfg } from "../data.js";
+import { useLang } from "../i18n.jsx";
 import { useReveal } from "./hooks.js";
 import SectionHead from "./SectionHead.jsx";
 import Icon from "./Icon.jsx";
@@ -8,6 +9,7 @@ import Icon from "./Icon.jsx";
 export default function Contact() {
   const form = useRef(null);
   const ref = useReveal();
+  const { t } = useLang();
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
   const onSubmit = async (e) => {
@@ -28,9 +30,9 @@ export default function Contact() {
       <div className="container">
         <SectionHead
           index="05"
-          label="Kontak"
-          title="Mari berbincang."
-          sub="Punya proyek, kesempatan magang, atau sekadar ingin menyapa? Kirim pesan, saya senang membalasnya."
+          label={t.nav.contact}
+          title={t.contact.title}
+          sub={t.contact.sub}
         />
         <div ref={ref} className="contact-grid reveal">
           <div className="contact-links">
@@ -43,23 +45,23 @@ export default function Contact() {
 
           <form ref={form} onSubmit={onSubmit} className="form">
             <label>
-              <span>Nama</span>
-              <input type="text" name="from_name" placeholder="Nama Anda" required autoComplete="name" />
+              <span>{t.contact.name}</span>
+              <input type="text" name="from_name" placeholder={t.contact.namePh} required autoComplete="name" />
             </label>
             <label>
-              <span>Email</span>
-              <input type="email" name="from_email" placeholder="nama@email.com" required autoComplete="email" />
+              <span>{t.contact.email}</span>
+              <input type="email" name="from_email" placeholder={t.contact.emailPh} required autoComplete="email" />
             </label>
             <label>
-              <span>Pesan</span>
-              <textarea name="message" rows="5" placeholder="Tulis pesan Anda…" required />
+              <span>{t.contact.message}</span>
+              <textarea name="message" rows="5" placeholder={t.contact.messagePh} required />
             </label>
             <button type="submit" className="btn btn-dark" disabled={status === "sending"}>
-              {status === "sending" ? "Mengirim…" : "Kirim pesan"} <Icon name="send" size={18} />
+              {status === "sending" ? t.contact.sending : t.contact.send} <Icon name="send" size={18} />
             </button>
             <p className={"form-status " + status} role="status" aria-live="polite">
-              {status === "sent" && "Terima kasih! Pesan Anda sudah terkirim."}
-              {status === "error" && "Pesan belum terkirim. Coba lagi atau hubungi lewat email di samping."}
+              {status === "sent" && t.contact.sent}
+              {status === "error" && t.contact.error}
             </p>
           </form>
         </div>

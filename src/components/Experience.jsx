@@ -1,11 +1,11 @@
-import { experience } from "../data.js";
+import { useLang } from "../i18n.jsx";
 import { useReveal } from "./hooks.js";
 import SectionHead from "./SectionHead.jsx";
 
 function Item({ item }) {
   const ref = useReveal();
   const photos = item.photos || [];
-  const grid = photos.length > 2;
+  const grid = photos.length > 2; // 3 foto atau lebih -> tampil sebagai galeri grid
   return (
     <article ref={ref} className={"xp reveal" + (photos.length ? "" : " xp-solo")}>
       <div className="xp-text">
@@ -41,10 +41,12 @@ function Item({ item }) {
 }
 
 export default function Experience() {
+  const { t, data } = useLang();
+  const experience = data.experience;
   return (
     <section id="pengalaman" className="section section-alt">
       <div className="container">
-        <SectionHead index="04" label="Pengalaman" title="Work Experience" />
+        <SectionHead index="04" label={t.nav.experience} title={t.experience.title} />
         <div className="xp-list">
           {experience.map((item) => (
             <Item key={item.title + item.place} item={item} />
